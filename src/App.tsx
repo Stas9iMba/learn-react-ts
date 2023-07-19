@@ -1,23 +1,23 @@
 import { useState } from "react";
+import { Todo } from "./types";
 import TodoItem from "./components/TodoItem";
 import NewTodoForm from "./components/NewTodoForm";
 
-type ITodo = {
-  id: string;
-  title: string;
-  completed: boolean;
-};
-
 function App() {
   const [text, setText] = useState("");
-  const [todos, setTodos] = useState<string[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
 
   const addTodo = () => {
-    setTodos([...todos, text]);
+    const newTodo: Todo = {
+      id: Date.now().toString(),
+      title: text,
+      completed: false,
+    };
+    setTodos([newTodo, ...todos]);
     setText("");
   };
 
