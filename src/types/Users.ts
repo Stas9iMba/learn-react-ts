@@ -13,6 +13,7 @@ export type LocalGithubUser = {
   following: number;
   created: string;
 };
+
 export type GithubUser = {
   login: string;
   id: number;
