@@ -114,7 +114,7 @@
     ],
 
     "jsx-a11y/label-has-associated-control": [
-      2,
+      "error",
       {
         "assert": "either" // either check for `htmlFor` or `nesting`
       }

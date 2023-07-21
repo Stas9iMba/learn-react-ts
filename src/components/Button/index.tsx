@@ -3,13 +3,13 @@ import React from 'react';
 import style from './Button.module.scss';
 
 type ButtonProps = {
-  children: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-};
+  children: React.ReactNode;
+} & React.ComponentPropsWithoutRef<'button'>;
 
-function Button({ children, onClick }: ButtonProps) {
+function Button({ children, ...rest }: ButtonProps) {
   return (
-    <button className={style['button']} type="button" onClick={onClick}>
+    // eslint-disable-next-line react/button-has-type -- правило не работает в ts
+    <button className={style['button']} {...rest} type={rest.type ?? 'button'}>
       {children}
     </button>
   );

@@ -43,7 +43,7 @@ function Search({ hasError, onSubmit }: SearchProps) {
         />
 
         {hasError && <div className={style['error']}>No result</div>}
-        <Button onClick={handleSubmit}>Search</Button>
+        <Button type='submit' >Search</Button>
       </div>
     </form>
   );
