@@ -3,12 +3,12 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ReactComponent as MoonIcon } from '~assets/icon-moon.svg';
 import { ReactComponent as SunIcon } from '~assets/icon-sun.svg';
 
-import style from './TheHeader.module.scss';
+import style from './ThemeSwitcher.module.scss';
 
 function ThemeSwitcher() {
   const [isDark, setIsDark] = useState(false);
 
-  const ThemeIcon = useMemo(() => (isDark ? SunIcon : MoonIcon), [isDark]);
+  const ThemeIcon = useMemo(() => (isDark ? MoonIcon : SunIcon), [isDark]);
 
   useEffect(() => {
     document.body.dataset['theme'] = isDark ? 'dark' : 'light';
@@ -19,7 +19,7 @@ function ThemeSwitcher() {
   }, []);
 
   return (
-    <button className={style['switcher']} data-testid="TheHeader" onClick={handleToggleTheme} type="button">
+    <button className={style['switcher']} onClick={handleToggleTheme} type="button">
       <span>{isDark ? 'Dark' : 'Light'}</span>
       <ThemeIcon className={style['icon']} />
     </button>

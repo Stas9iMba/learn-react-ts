@@ -1,11 +1,12 @@
+import ThemeSwitcher from '~components/ThemeSwitcher';
+
 import style from './TheHeader.module.scss';
 
-type TheHeaderProps = {}
-
-function TheHeader({}: TheHeaderProps) {
+function TheHeader() {
   return (
-    <div className={style['TheHeader']} data-testid="TheHeader">
-      TheHeader
+    <div className={style['header']}>
+      <div className={style['logo']}>devfinder</div>
+      <ThemeSwitcher />
     </div>
   );
 }

@@ -11,14 +11,16 @@
 }
 
 .switcher {
+  all: unset;
   display: flex;
   align-items: center;
   gap: 1rem;
   cursor: pointer;
 
+
   span {
     color : var(--switcher-color);
-    font-style: 0.75rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 2.5px
   }
