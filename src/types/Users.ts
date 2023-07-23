@@ -6,7 +6,7 @@ export type LocalGithubUser = {
   company: string;
   blog: string;
   location: string;
-  bio: string;
+  bio?: string;
   twitter?: string | null;
   repos: number;
   followers: number;
@@ -22,7 +22,7 @@ export type GithubUser = {
   company: string;
   blog: string;
   location: string;
-  bio: string;
+  bio?: string;
   twitter_username?: string | null;
   public_repos: number;
   followers: number;
