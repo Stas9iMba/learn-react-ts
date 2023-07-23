@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback } from 'react';
 
 import { ReactComponent as SearchIcon } from '~assets/icon-search.svg';
 import Button from '~components/Button';
@@ -10,18 +10,19 @@ type SearchProps = {
   onSubmit: (text: string) => void;
 };
 
-function Search({ hasError, onSubmit }: SearchProps) {
-  const searchRef = useRef<HTMLInputElement | null>(null);
+type FormFields = {
+  username: HTMLInputElement;
+};
 
+function Search({ hasError, onSubmit }: SearchProps) {
   const handleSubmit = useCallback(
-    (event: React.FormEvent) => {
+    (event: React.FormEvent<HTMLFormElement & FormFields>) => {
       event.preventDefault();
-      const text = searchRef.current?.value;
+      const text = event.currentTarget.username.value;
+
       if (text) {
         onSubmit(text);
-        if (searchRef.current) {
-          searchRef.current.value = '';
-        }
+        event.currentTarget.reset();
       }
     },
     [onSubmit],
@@ -39,11 +40,10 @@ function Search({ hasError, onSubmit }: SearchProps) {
           id="search"
           name="username"
           placeholder="Search GitHub username..."
-          ref={searchRef}
         />
 
         {hasError && <div className={style['error']}>No result</div>}
-        <Button type='submit' >Search</Button>
+        <Button type="submit">Search</Button>
       </div>
     </form>
   );
