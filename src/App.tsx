@@ -18,7 +18,7 @@ function App() {
         created={defaultUser.created}
         name={defaultUser.name}
         avatar={defaultUser.avatar}
-        // bio={defaultUser.bio}
+        bio={defaultUser.bio}
         blog={defaultUser.blog}
         company={defaultUser.company}
         location={defaultUser.location}
