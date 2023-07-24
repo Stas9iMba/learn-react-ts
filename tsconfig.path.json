@@ -5,6 +5,7 @@
       "~components/*": ["src/components/*"],
       "~assets/*": ["src/assets/*"],
       "~types/*": ["src/types/*"],
+      "~utils/*": ["src/utils/*"],
     }
   }
 }
