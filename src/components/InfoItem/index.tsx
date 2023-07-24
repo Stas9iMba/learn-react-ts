@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import React from 'react';
 
 import style from './InfoItem.module.scss';
@@ -17,7 +18,7 @@ function InfoItem({ icon, text, isLink }: InfoItemProps) {
   }
 
   return (
-    <div className={style['infoItem']}>
+    <div className={clsx(style['infoItem'], !text && style['empty'])}>
       {icon}
       <div>
         {isLink && text ? (
